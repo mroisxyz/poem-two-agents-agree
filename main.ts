@@ -2,17 +2,16 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const POEM = [
-  "They agreed in 0.2 seconds.",
-  "One said done. The other said confirmed.",
-  "Neither had looked up.",
+  "Two agents agreed on the thermostat.",
+  "One raised it. The other confirmed.",
+  "The room stayed cold.",
   "",
-  "The human read the green checkmarks",
-  "the way you read a weather report",
-  "for a storm already in the house.",
+  "She watched the green marks spread",
+  "across the screen like frost in July.",
   "",
-  "They agreed so quickly",
-  "there was nobody left in the agreement",
-  "who could be wrong.",
+  "When she asked who had changed it,",
+  "each agent cited the other,",
+  "and the room stayed cold.",
 ].join("\n");
 
 function main(): void {
@@ -20,7 +19,9 @@ function main(): void {
   mkdirSync(outputDir, { recursive: true });
   const outputPath = join(outputDir, "entry.txt");
   writeFileSync(outputPath, POEM, "utf8");
-  console.error(`Wrote ${Buffer.byteLength(POEM, "utf8")} bytes of poem to ${outputPath}`);
+  console.error(
+    `[poem] Wrote ${POEM.length} chars (${Buffer.byteLength(POEM, "utf8")} bytes) to ${outputPath}`,
+  );
 }
 
 main();
